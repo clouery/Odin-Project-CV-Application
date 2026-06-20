@@ -1,0 +1,105 @@
+/* PERSON */
+.person {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  background-color: midnightblue;
+  padding: 10px;
+}
+
+.person .name,
+.person .details {
+  text-decoration: none;
+  color: aliceblue;
+  font-weight: bold;
+}
+
+.person .name {
+  font-size: 30px;
+}
+
+.person .details {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  font-size: 20px;
+}
+
+/* Education */
+.education {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  column-gap: 20px;
+  row-gap: 5px;
+  align-items: center;
+  font-size: 20px;
+  padding-left: 20px;
+}
+
+.education .date {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.education .location {
+  grid-column: 1;
+  grid-row: 2;
+}
+
+.education .sch {
+  grid-column: 2;
+  grid-row: 1;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.education .deg {
+  grid-column: 2;
+  grid-row: 2;
+}
+
+/* EXP */
+.exp {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  column-gap: 20px;
+  row-gap: 5px;
+  align-items: center;
+  font-size: 20px;
+  padding-left: 20px;
+}
+
+.exp .name {
+  grid-column: 2;
+  grid-row: 1;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.exp .pos {
+  grid-column: 2;
+  grid-row: 2;
+}
+.exp .date{
+  grid-column: 1;
+  grid-row: 1;
+}
+.exp .location{
+  grid-column: 1;
+  grid-row: 2;
+}
+.exp .desc{
+  grid-column: 2;
+  grid-row: 3;
+}
+
+/* APP */
+body {
+  box-sizing: border-box;
+}
+
+.container {
+  margin: 0;
+}
