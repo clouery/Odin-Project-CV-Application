@@ -1,4 +1,4 @@
-export function Person({ name="Hor Xiang Zhi", email="horxiangzhi@gmail.com", number="1234 5678", address="Singapore"}) {
+export function Person({ name, email, number, address}) {
     return (
         <div className="person">
             <h1 className="name">{name}</h1>
