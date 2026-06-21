@@ -10,7 +10,7 @@ import { InputEdu } from './InputEdu'
 import { InputExp } from './InputExp'
 
 function App() {
-  const [openSection, setOpenSection] = useState("personal");
+  const [openSection, setOpenSection] = useState("show");
 
   const [inputP, setInputP] = useState({
     name: "John Doe",
@@ -123,13 +123,13 @@ function App() {
       <div className="sidebar">
 
         {/* Personal */}
-        <button className="section-header" onClick={() => toggleSection("personal")}>
+        <button className="section-header" onClick={() => toggleSection("show")}>
           <h2>Personal Details</h2>
         </button>
       </div>
 
       {/* if Toggled, we show the text form */}
-      {openSection === "personal" && (
+      {openSection === "show" && (
         < InputPerson 
           data={inputP}
           onChange={personOnChange}
