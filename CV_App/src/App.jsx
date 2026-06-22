@@ -10,7 +10,7 @@ import { InputEdu } from './InputEdu'
 import { InputExp } from './InputExp'
 
 function App() {
-  const [openSection, setOpenSection] = useState("show");
+  const [openSection, setOpenSection] = useState("personal");
 
   const [inputP, setInputP] = useState({
     name: "John Doe",
@@ -27,7 +27,7 @@ function App() {
       startDate: "8 Aug 2025",
       endDate: "1 Dec 2029",
       isCollapsed: true,
-      isHidden: false,
+      // isHidden: false,
     }
   ])
 
@@ -41,12 +41,12 @@ function App() {
       location: "City Hall - Circle Line + bus 7",
       desc: "This is my company that i start since the Summer Break started",
       isCollapsed: true,
-      isHidden: false,
+      // isHidden: false,
     }
   ])
 
   function toggleSection(section) {
-    setOpenSection(openSection === section? "" : section);
+    setOpenSection(openSection === section ? "" : section);
   }
 
   function personOnChange(field, value) {
@@ -83,7 +83,7 @@ function App() {
         startDate: "",
         endDate: "",
         isCollapsed: false,
-        isHidden: false
+        // isHidden: false
       }
     ]);
   }
@@ -98,22 +98,31 @@ function App() {
         startDate: "",
         endDate: "",
         location: "",
-        desc: ""
+        desc: "",
+        isCollapsed: false,
       }
     ]);
+  }
+
+  function removeEdu(id) {
+    setInputEdu(idx => idx.filter(edu => edu.id !== id))
+  }
+
+  function removeExp(id) {
+    setInputExp(idx => idx.filter(exp => exp.id !== id))
   }
 
   function toggleEduCollapse(id) {
     setInputEdu(prev => prev.map(
       // inverse collapse
-      exp => exp.id === id ? {...exp, isCollapsed: !exp.isCollapsed} : exp
+      exp => exp.id === id ? { ...exp, isCollapsed: !exp.isCollapsed } : exp
     ))
   }
 
   function toggleExpCollapse(id) {
     setInputExp(prev => prev.map(
       // inverse collapse
-      exp => exp.id === id ? {...exp, isCollapsed: !exp.isCollapsed} : exp
+      exp => exp.id === id ? { ...exp, isCollapsed: !exp.isCollapsed } : exp
     ))
   }
 
@@ -123,20 +132,67 @@ function App() {
       <div className="sidebar">
 
         {/* Personal */}
-        <button className="section-header" onClick={() => toggleSection("show")}>
+        <button className="section-header" onClick={() => toggleSection("personal")}>
           <h2>Personal Details</h2>
         </button>
+        {openSection === "personal" && (
+          <div className="section-container">
+            < InputPerson
+              data={inputP}
+              onChange={personOnChange}
+            />
+          </div>
+        )}
+
+        {/* Education */}
+        <button className="section-header" onClick={() => toggleSection("education")}>
+          <h2>Education</h2>
+        </button>
+        {openSection === "education" && (
+          <div className='section-container'>
+            {inputEdu.map((edu, index) => (
+              <InputEdu
+                key={edu.id}
+                data={edu}
+                index={index}
+                onChange={(field, value) => eduOnChange(index, field, value)}
+                onClick={toggleEduCollapse}
+                removeEdu={removeEdu}
+              />
+            ))}
+
+            <button className="addBtn" onClick={addEducation}>
+              Add Education
+            </button>
+          </div>
+        )}
+
+        {/* Experience */}
+        <button className="section-header" onClick={() => toggleSection("experience")}>
+          <h2>Experience</h2>
+        </button>
+        {openSection === "experience" && (
+          <div className='section-container'>
+            {inputExp.map((exp,index) => 
+              <InputExp
+                key={exp.id}
+                data={exp}
+                index={index}
+                onChange={(field,value) => expOnChange(index, field, value)}
+                onClick={toggleExpCollapse}
+                remvoeExp={removeExp}
+              />
+            )
+            }   
+            <button className='addBtn' onClick={addExperience}>
+              Add Experience
+            </button>
+          </div>
+        )}
+
       </div>
 
       {/* if Toggled, we show the text form */}
-      {openSection === "show" && (
-        < InputPerson 
-          data={inputP}
-          onChange={personOnChange}
-        />
-      )}
-
-      {/* Education */}
 
 
       <div className="cv">
@@ -171,7 +227,7 @@ function App() {
             desc={exp.desc}
           />
         ))}
-      
+
       </div>
     </div>
   )

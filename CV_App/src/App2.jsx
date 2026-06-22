@@ -16,7 +16,7 @@ function App2() {
 
   const [inputEdu, setInputEdu] = useState([
     {
-      id: 1,
+      id: crypto.randomUUID(),
       sch: "Singapore Management University",
       location: "Singapore",
       deg: "Computer Science and Business Management",
@@ -29,7 +29,7 @@ function App2() {
 
   const [inputExp, setInputExp] = useState([
     {
-      id: 1,
+      id: crypto.randomUUID(),
       cname: "XZ pte ltd",
       pos: "CEO",
       startDate: "01 May 2026",
