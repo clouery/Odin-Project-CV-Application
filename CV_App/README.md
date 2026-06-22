@@ -36,20 +36,22 @@ npm run build
 The generated files will be located in the dist folder.
 
 Learning Outcomes
+
 Through this project, I practised:
+
 Building reusable React components
+
 Passing data through props
+
 Managing application state using React hooks
+
 Handling user input and forms
+
 Rendering dynamic lists
+
 Structuring a React application
+
 Deploying a frontend application with Vercel
-Future Improvements
-Add drag-and-drop CV section ordering
-Add multiple CV templates
-Add local storage persistence
-Add PDF export functionality
-Improve mobile styling
 
 Acknowledgements
 Built as part of The Odin Project React curriculum.
