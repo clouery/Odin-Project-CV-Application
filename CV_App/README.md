@@ -13,17 +13,25 @@ git clone https://github.com/clouery/Odin-Project-CV-Application.git
 ```
 
 Navigate into the project folder:
+```bash
 cd Odin-Project-CV-Application
+```
 
 Install dependencies:
+```bash
 npm install
+```
 
 Start the development server:
+```bash
 npm run dev
+```
 
 Build for Production
 To create a production build:
+```bash
 npm run build
+```
 
 The generated files will be located in the dist folder.
 
