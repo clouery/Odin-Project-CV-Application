@@ -6,7 +6,7 @@ Users can enter their personal information, education history, and work experien
 
 ## Live Demo
 
-https://your-vercel-url.vercel.app
+https://cv-application-phi-flame.vercel.app/
 
 ## Features
 
