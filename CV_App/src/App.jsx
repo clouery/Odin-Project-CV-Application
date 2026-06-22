@@ -27,21 +27,19 @@ function App() {
       startDate: "8 Aug 2025",
       endDate: "1 Dec 2029",
       isCollapsed: true,
-      // isHidden: false,
     }
   ])
 
   const [inputExp, setInputExp] = useState([
     {
       id: crypto.randomUUID(),
-      cname: "XZ pte ltd",
-      pos: "CEO",
-      startDate: "01 May 2026",
-      endDate: "08 Aug 2026",
-      location: "City Hall - Circle Line + bus 7",
-      desc: "This is my company that i start since the Summer Break started",
+      cname: "Agent Forge AI Hackathon 2026",
+      pos: "1st Place",
+      startDate: "13 June 2026",
+      endDate: "13 June 2026",
+      location: "Singapore Mangement University",
+      desc: "My Team won the hackathon! It was a blast :)",
       isCollapsed: true,
-      // isHidden: false,
     }
   ])
 
