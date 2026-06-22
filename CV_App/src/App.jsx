@@ -13,9 +13,9 @@ function App() {
   const [openSection, setOpenSection] = useState("personal");
 
   const [inputP, setInputP] = useState({
-    name: "John Doe",
-    email: "johndoe@gmail.com",
-    number: "9999 9999",
+    name: "Clouery",
+    email: "horxiangzhi@gmail.com",
+    number: "+65 9123 8765",
     address: "Singapore"
   })
 
@@ -128,108 +128,114 @@ function App() {
 
 
   return (
-    <div className="container">
-      <div className="sidebar">
+    <>
+      <div className="container">
+        <div className="sidebar">
 
-        {/* Personal */}
-        <button className="section-header" onClick={() => toggleSection("personal")}>
-          <h2>Personal Details</h2>
-        </button>
-        {openSection === "personal" && (
-          <div className="section-container">
-            < InputPerson
-              data={inputP}
-              onChange={personOnChange}
+          {/* Personal */}
+          <button className="section-header" onClick={() => toggleSection("personal")}>
+            <h2>Personal Details</h2>
+          </button>
+          {openSection === "personal" && (
+            <div className="section-container">
+              < InputPerson
+                data={inputP}
+                onChange={personOnChange}
+              />
+            </div>
+          )}
+
+          {/* Education */}
+          <button className="section-header" onClick={() => toggleSection("education")}>
+            <h2>Education</h2>
+          </button>
+          {openSection === "education" && (
+            <div className='section-container'>
+              {inputEdu.map((edu, index) => (
+                <InputEdu
+                  key={edu.id}
+                  data={edu}
+                  index={index}
+                  onChange={(field, value) => eduOnChange(index, field, value)}
+                  onClick={toggleEduCollapse}
+                  removeEdu={removeEdu}
+                />
+              ))}
+
+              <button className="addBtn" onClick={addEducation}>
+                Add Education
+              </button>
+            </div>
+          )}
+
+          {/* Experience */}
+          <button className="section-header" onClick={() => toggleSection("experience")}>
+            <h2>Experience</h2>
+          </button>
+          {openSection === "experience" && (
+            <div className='section-container'>
+              {inputExp.map((exp, index) =>
+                <InputExp
+                  key={exp.id}
+                  data={exp}
+                  index={index}
+                  onChange={(field, value) => expOnChange(index, field, value)}
+                  onClick={toggleExpCollapse}
+                  remvoeExp={removeExp}
+                />
+              )
+              }
+              <button className='addBtn' onClick={addExperience}>
+                Add Experience
+              </button>
+            </div>
+          )}
+
+        </div>
+
+        {/* if Toggled, we show the text form */}
+
+
+        <div className="cv">
+
+          < Person
+            name={inputP.name}
+            email={inputP.email}
+            number={inputP.number}
+            address={inputP.address}
+          />
+
+          <p className="title">EDUCATION</p>
+          {inputEdu.map((edu, index) => (
+            <Education
+              key={index}
+              sch={edu.sch}
+              location={edu.location}
+              deg={edu.deg}
+              startDate={edu.startDate}
+              endDate={edu.endDate}
             />
-          </div>
-        )}
+          ))}
+          <p className="title">EXPERIENCE</p>
+          {inputExp.map((exp, index) => (
+            <Experience
+              key={index}
+              cname={exp.cname}
+              pos={exp.pos}
+              startDate={exp.startDate}
+              endDate={exp.endDate}
+              location={exp.location}
+              desc={exp.desc}
+            />
+          ))}
 
-        {/* Education */}
-        <button className="section-header" onClick={() => toggleSection("education")}>
-          <h2>Education</h2>
-        </button>
-        {openSection === "education" && (
-          <div className='section-container'>
-            {inputEdu.map((edu, index) => (
-              <InputEdu
-                key={edu.id}
-                data={edu}
-                index={index}
-                onChange={(field, value) => eduOnChange(index, field, value)}
-                onClick={toggleEduCollapse}
-                removeEdu={removeEdu}
-              />
-            ))}
-
-            <button className="addBtn" onClick={addEducation}>
-              Add Education
-            </button>
-          </div>
-        )}
-
-        {/* Experience */}
-        <button className="section-header" onClick={() => toggleSection("experience")}>
-          <h2>Experience</h2>
-        </button>
-        {openSection === "experience" && (
-          <div className='section-container'>
-            {inputExp.map((exp,index) => 
-              <InputExp
-                key={exp.id}
-                data={exp}
-                index={index}
-                onChange={(field,value) => expOnChange(index, field, value)}
-                onClick={toggleExpCollapse}
-                remvoeExp={removeExp}
-              />
-            )
-            }   
-            <button className='addBtn' onClick={addExperience}>
-              Add Experience
-            </button>
-          </div>
-        )}
+        </div>
 
       </div>
-
-      {/* if Toggled, we show the text form */}
-
-
-      <div className="cv">
-
-        < Person
-          name={inputP.name}
-          email={inputP.email}
-          number={inputP.number}
-          address={inputP.address}
-        />
-
-        <p className="title">EDUCATION</p>
-        {inputEdu.map((edu, index) => (
-          <Education
-            key={index}
-            sch={edu.sch}
-            location={edu.location}
-            deg={edu.deg}
-            startDate={edu.startDate}
-            endDate={edu.endDate}
-          />
-        ))}
-        <p className="title">EXPERIENCE</p>
-        {inputExp.map((exp, index) => (
-          <Experience
-            key={index}
-            cname={exp.cname}
-            pos={exp.pos}
-            startDate={exp.startDate}
-            endDate={exp.endDate}
-            location={exp.location}
-            desc={exp.desc}
-          />
-        ))}
-
-      </div>
-    </div>
+      <footer>
+        Made by <a href="https://github.com/clouery">Xiang Zhi</a>
+      </footer>
+    </>
   )
 }
 
