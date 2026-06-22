@@ -147,6 +147,10 @@ function App() {
       <div className="container">
         <div className="sidebar">
 
+          <button className="printBtn" onClick={() => window.print()}>
+            Print CV
+          </button>
+
           {/* Personal */}
           <button className="section-header" onClick={() => toggleSection("personal")}>
             <h2>Personal Details</h2>
@@ -212,9 +216,6 @@ function App() {
 
 
         <div className="cv-wrapper">
-          <button className="printBtn" onClick={() => window.print()}>
-            Print CV
-          </button>
           <div className="cv">
             < Person
               name={inputP.name}
