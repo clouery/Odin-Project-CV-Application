@@ -13,7 +13,7 @@ function App() {
   const [openSection, setOpenSection] = useState("personal");
 
   const [inputP, setInputP] = useState({
-    name: "Clouery",
+    name: "Hor Xiang Zhi",
     email: "horxiangzhi@gmail.com",
     number: "+65 9123 8765",
     address: "Singapore"
@@ -33,12 +33,29 @@ function App() {
   const [inputExp, setInputExp] = useState([
     {
       id: crypto.randomUUID(),
+      cname: "Singapore Stupid Hacks Hackathon 2026",
+      pos: "2st Place",
+      startDate: "2 May 2026",
+      endDate: "2 May 2026",
+      location: "Singapore Mangement University",
+      desc: `
+      It all started with a uniquely Singaporean idea from one of my teammate, we expanded on it. What began as a simple, fun idea quickly evolved into a full-fledged project that ultimately secured us 2nd place at the Singapore Stupid Hacks Hackathon. As my first-ever hackathon experience, it was an incredible journey of growth and collaboration. We even shared our work with the Reddit community (r/singapore) and were blown away by the overwhelming response! We were even featured on the news! (Lian He Zao Bao)`,
+      isCollapsed: true,
+    },
+    {
+      id: crypto.randomUUID(),
       cname: "Agent Forge AI Hackathon 2026",
       pos: "1st Place",
       startDate: "13 June 2026",
       endDate: "13 June 2026",
       location: "Singapore Mangement University",
-      desc: "My Team won the hackathon! It was a blast :)",
+      desc: `Can't believe I almost missed the top 3 teams announcements because I was searching for a toilet! Agent Forge AI Hackathon 2026 was a new experience for me and gave me new perspectives on working with AI. A big, big thanks to my teammates for the amazing teamwork! Out of 500+ registered builders at the Agent Forge AI Hackathon, my team and I won 1st place. 🏆 
+      This hackathon taught me that building impactful AI systems is not just about writing the most code or moving the fastest. The most important work often happens before the first line of code is written.
+      For agent-based systems especially, strong planning is crucial. Without clearly defining the problem, user expectations, and how each agent contributes, the system can easily become a collection of outputs rather than a meaningful solution.
+      Through this experience, I learned that thoughtful planning, continuous discussion, and challenging our assumptions early are what allow AI systems to become more reliable, useful, and aligned with real-world needs.
+      I may not be the strongest coder, but I realised my strength lies in connecting ideas, facilitating meaningful discussions, and identifying flaws or logical gaps early during the planning process. Those conversations helped us refine our approach and build a system that was more robust.
+      The value of a multi-agent system isn't in generating more answers. It's in surfacing disagreement on purpose, exposing blind spots, and helping teams make better decisions before reality makes them expensive. For us, that meant making brand risk visible before a campaign goes live.
+      `,
       isCollapsed: true,
     }
   ])
@@ -179,7 +196,7 @@ function App() {
                   index={index}
                   onChange={(field, value) => expOnChange(index, field, value)}
                   onClick={toggleExpCollapse}
-                  remvoeExp={removeExp}
+                  removeExp={removeExp}
                 />
               )
               }
