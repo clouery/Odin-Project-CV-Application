@@ -5,6 +5,7 @@
 
 body {
   margin: 0;
+  font-family:'Segoe UI', Roboto, sans-serif;
 }
 
 .container {
@@ -16,6 +17,11 @@ body {
 }
 
 footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -24,7 +30,8 @@ footer {
   font-size: 20px;
   color: #555;
   border-top: 1px solid #e5e7eb;
-  background: white;
+  background-color: cornsilk;
+
 }
 
 a {
@@ -298,5 +305,96 @@ a {
   grid-column: 2;
   grid-row: 3;
   overflow: auto;
+}
+
+/* Print Button */
+.printBtn {
+  position: sticky;
+  top: 16px;
+  z-index: 10;
+  align-self: flex-start;
+  margin: 16px 16px 0 16px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  background-color: #3b82f6;
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  transition: background-color 0.15s, transform 0.1s;
+}
+
+.printBtn:hover {
+  background-color: #2563eb;
+}
+
+.printBtn:active {
+  transform: translateY(1px);
+}
+
+/* Print */
+@media print {
+  @page {
+    size: A4;
+    margin: 10mm;
+  }
+
+  body {
+    margin: 0;
+  }
+
+  html,
+  body,
+  #root {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  #root {
+    max-width: none;
+  }
+
+  .sidebar,
+  footer,
+  .printBtn {
+    display: none;
+  }
+
+  .container {
+    display: block;
+    width: 100%;
+    min-height: auto;
+  }
+
+  .container > :not(.cv-wrapper) {
+    display: none;
+  }
+
+  .cv-wrapper {
+    position: static;
+    display: block;
+    width: 100%;
+    max-width: none;
+  }
+
+  .cv {
+    width: 100%;
+    min-height: auto;
+    margin: 0;
+    box-shadow: none;
+    border: none;
+  }
+
+  .education,
+  .exp {
+    break-inside: avoid;
+  }
+
+  .exp .desc {
+    overflow: visible;
+  }
 }
 

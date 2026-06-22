@@ -211,39 +211,42 @@ function App() {
         {/* if Toggled, we show the text form */}
 
 
-        <div className="cv">
-
-          < Person
-            name={inputP.name}
-            email={inputP.email}
-            number={inputP.number}
-            address={inputP.address}
-          />
-
-          <p className="title">EDUCATION</p>
-          {inputEdu.map((edu, index) => (
-            <Education
-              key={index}
-              sch={edu.sch}
-              location={edu.location}
-              deg={edu.deg}
-              startDate={edu.startDate}
-              endDate={edu.endDate}
+        <div className="cv-wrapper">
+          <button className="printBtn" onClick={() => window.print()}>
+            Print CV
+          </button>
+          <div className="cv">
+            < Person
+              name={inputP.name}
+              email={inputP.email}
+              number={inputP.number}
+              address={inputP.address}
             />
-          ))}
-          <p className="title">EXPERIENCE</p>
-          {inputExp.map((exp, index) => (
-            <Experience
-              key={index}
-              cname={exp.cname}
-              pos={exp.pos}
-              startDate={exp.startDate}
-              endDate={exp.endDate}
-              location={exp.location}
-              desc={exp.desc}
-            />
-          ))}
 
+            <p className="title">EDUCATION</p>
+            {inputEdu.map((edu, index) => (
+              <Education
+                key={index}
+                sch={edu.sch}
+                location={edu.location}
+                deg={edu.deg}
+                startDate={edu.startDate}
+                endDate={edu.endDate}
+              />
+            ))}
+            <p className="title">EXPERIENCE</p>
+            {inputExp.map((exp, index) => (
+              <Experience
+                key={index}
+                cname={exp.cname}
+                pos={exp.pos}
+                startDate={exp.startDate}
+                endDate={exp.endDate}
+                location={exp.location}
+                desc={exp.desc}
+              />
+          ))}
+          </div> 
         </div>
 
       </div>
