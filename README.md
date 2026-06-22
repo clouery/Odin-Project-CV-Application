@@ -1,57 +1,28 @@
-## Getting Started
+# CV Application
 
-### Prerequisites
+A dynamic CV/resume builder built with React and Vite as part of The Odin Project curriculum.
 
-Make sure you have Node.js installed.
+Users can enter their personal information, education history, and work experience to generate a professional-looking CV. The application uses React components and state management to provide a smooth editing experience.
 
-### Installation
+## Live Demo
 
-Clone the repository:
+https://cv-application-phi-flame.vercel.app/
 
-```bash
-git clone https://github.com/clouery/Odin-Project-CV-Application.git
-```
+## Features
 
-Navigate into the project folder:
-```bash
-cd Odin-Project-CV-Application
-```
+- Create and edit personal information
+- Add multiple education entries
+- Add multiple work experience entries
+- Update existing CV details
+- Expand/collapse sections for easier editing
+- Live CV preview
+- Print-friendly resume layout
+- Responsive design
 
-Install dependencies:
-```bash
-npm install
-```
+## Built With
 
-Start the development server:
-```bash
-npm run dev
-```
-
-Build for Production
-To create a production build:
-```bash
-npm run build
-```
-
-The generated files will be located in the dist folder.
-
-Learning Outcomes
-
-Through this project, I practised:
-
-Building reusable React components
-
-Passing data through props
-
-Managing application state using React hooks
-
-Handling user input and forms
-
-Rendering dynamic lists
-
-Structuring a React application
-
-Deploying a frontend application with Vercel
-
-Acknowledgements
-Built as part of The Odin Project React curriculum.
+- React
+- Vite
+- JavaScript (ES6+)
+- CSS
+- HTML
